@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "delete:build": "node scripts/delete.js",
+    "build:github": "npm run delete:build && ng build --output-path=docs --deploy-url=/wonder-writer/ --base-href=/wonder-writer"
   },
   "private": true,
   "dependencies": {
