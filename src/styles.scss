@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import "preset";
+@import "mixins";
+@import "flat-button";
+@import "input";
+@import "quill";
+
+body, html {
+  background-color: $cod-grey;
+}
+
+* {
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $black-50;
+  }
+
+  -webkit-overflow-scrolling: touch;
+}

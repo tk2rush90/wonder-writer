@@ -1,0 +1,9 @@
+<!-- search icon -->
+<app-icon name="search"></app-icon>
+
+<!-- input -->
+<input
+  (ngModelChange)="searchChange.emit($event)"
+  [ngModel]="search"
+  appInput
+  placeholder="Search Projects"/>

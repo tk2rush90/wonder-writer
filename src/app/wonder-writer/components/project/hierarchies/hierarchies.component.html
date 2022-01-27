@@ -1,0 +1,12 @@
+<!-- render hierarchy items -->
+<app-hierarchy-item
+  *ngFor="let item of hierarchies"
+  [data]="item"
+  [directoryType]="$any(item.directoryType)"></app-hierarchy-item>
+
+<!-- dragging hierarchy item -->
+<app-dragging-hierarchy
+  *ngIf="draggingHierarchy"
+  [data]="draggingHierarchy"
+  [style.left]="draggingHierarchyLeft"
+  [style.top]="draggingHierarchyTop"></app-dragging-hierarchy>

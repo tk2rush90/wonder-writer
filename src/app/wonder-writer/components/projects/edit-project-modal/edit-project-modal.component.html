@@ -1,0 +1,19 @@
+<app-modal-container>
+  <app-modal-header (close)="close()">
+    프로젝트 수정
+  </app-modal-header>
+
+  <app-modal-content>
+    <!-- use single text form -->
+    <app-single-text-form
+      (formSubmit)="onSubmit()"
+      label="프로젝트 명"></app-single-text-form>
+  </app-modal-content>
+
+  <app-modal-actions>
+    <!-- create button -->
+    <button (click)="onSubmit()" appFlatButton>
+      수정
+    </button>
+  </app-modal-actions>
+</app-modal-container>

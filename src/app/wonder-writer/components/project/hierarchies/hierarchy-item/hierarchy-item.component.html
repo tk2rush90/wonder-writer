@@ -1,0 +1,23 @@
+<!-- hierarchy dropzone -->
+<app-hierarchy-dropzone
+  *ngIf="notRootHierarchy"
+  [depth]="depth"
+  [data]="data"
+  [directoryType]="directoryType"></app-hierarchy-dropzone>
+
+<!-- current hierarchy -->
+<app-current-hierarchy
+  (hierarchyDeleted)="hierarchyDeleted.emit($event)"
+  [data]="data"
+  [depth]="depth"
+  [directoryType]="directoryType"></app-current-hierarchy>
+
+<!-- children -->
+<div *ngIf="data.opened">
+  <app-hierarchy-item
+    (hierarchyDeleted)="onHierarchyDeleted($event)"
+    *ngFor="let item of data.children"
+    [data]="item"
+    [depth]="depth + 1"
+    [directoryType]="directoryType"></app-hierarchy-item>
+</div>

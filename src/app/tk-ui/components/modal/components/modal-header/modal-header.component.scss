@@ -1,0 +1,22 @@
+@import "mixins";
+@import "props";
+
+:host {
+  @include flex(center, space-between);
+  @include padding(0 20px);
+  height: 75px;
+  background-color: $black-pearl;
+}
+
+// title
+h3 {
+  @include noto-sans-kr;
+  @include font(20px);
+  color: $white;
+}
+
+.ww-light-theme {
+  :host {
+    background-color: $picton-blue;
+  }
+}

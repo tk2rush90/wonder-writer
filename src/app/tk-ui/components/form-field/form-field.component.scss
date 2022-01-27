@@ -1,0 +1,37 @@
+@import "mixins";
+@import "props";
+
+:host {
+  @include flex(flex-start, null, column);
+}
+
+// field label
+.tk-label {
+  @include noto-sans-kr;
+  @include font(14px);
+  @include flex(center);
+  height: 40px;
+  color: $white;
+}
+
+// field container default
+.tk-field-container {
+  width: 100%;
+}
+
+// field container child
+.tk-field-container {
+  ::ng-deep {
+    > * {
+      width: 100%;
+    }
+  }
+}
+
+.ww-light-theme {
+  :host {
+    .tk-label {
+      color: $cod-grey;
+    }
+  }
+}

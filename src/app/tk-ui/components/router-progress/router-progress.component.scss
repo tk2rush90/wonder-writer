@@ -1,0 +1,17 @@
+@import "mixins";
+@import "props";
+
+:host {
+  @include top-left;
+  width: 100%;
+  height: 5px;
+  position: fixed;
+  z-index: 2000;
+  background-color: $picton-blue;
+}
+
+.ww-light-theme {
+  :host {
+    background-color: darken($picton-blue, 10%);
+  }
+}

@@ -1,0 +1,42 @@
+@import "mixins";
+@import "props";
+
+// input field
+.tk-input-field {
+  @include padding(0 10px);
+  @include border(1px solid $suva-grey);
+  @include font(14px, 300);
+  @include noto-sans-kr;
+  background-color: transparent;
+  border-radius: 5px;
+  height: 35px;
+  color: $white;
+
+  &::placeholder {
+    color: $white-50;
+  }
+
+  &.ng-touched, &.ng-dirty {
+    &.ng-invalid {
+      border-color: $chestnut;
+    }
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.ww-light-theme {
+  .tk-input-field {
+    color: $cod-grey;
+  }
+}

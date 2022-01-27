@@ -1,0 +1,81 @@
+<!-- content container -->
+<div class="ww-content">
+  <!-- header -->
+  <div class="ww-flex ww-header">
+    프로젝트 설정
+  </div>
+
+  <ng-container *ngIf="settings">
+    <!-- settings -->
+    <!-- content font -->
+    <div class="ww-flex-space ww-setting">
+      <!-- label -->
+      <div class="ww-label">
+        본문 폰트
+      </div>
+
+      <!-- font -->
+      <app-select
+        [(ngModel)]="settings.contentFont"
+        [options]="fonts"></app-select>
+    </div>
+
+    <!-- content width -->
+    <div class="ww-flex-space ww-setting">
+      <!-- label -->
+      <div class="ww-label">
+        본문 넓이
+      </div>
+
+      <!-- flex container -->
+      <div class="ww-flex">
+        <app-range-slider
+          [(ngModel)]="settings.contentWidth"
+          [max]="maxWidth"
+          [min]="minWidth"></app-range-slider>
+
+        <!-- value-->
+        <input
+          (blur)="onInputConfirm()"
+          (focus)="onInputFocus()"
+          (keydown.enter)="onInputConfirm()"
+          (ngModelChange)="onContentWidthChange($event)"
+          [ngModel]="settings.contentWidth"
+          appInput
+          type="number"/>
+
+        <!-- unit -->
+        <span class="ww-unit">
+          px
+        </span>
+      </div>
+    </div>
+
+    <!-- project theme -->
+    <div class="ww-flex-space ww-setting">
+      <!-- label -->
+      <div class="ww-label">
+        프로젝트 테마
+      </div>
+
+      <!-- flex container -->
+      <div class="ww-flex">
+        <!-- render themes -->
+        <div
+          (click)="onThemeChange(item.value)"
+          *ngFor="let item of themes"
+          [class.ww-selected]="item.value === settings.theme"
+          [style.background-color]="item.color"
+          class="ww-theme"></div>
+      </div>
+    </div>
+
+    <!-- button container -->
+    <div class="ww-button">
+      <!-- button -->
+      <button (click)="saveChanges()" appFlatButton>
+        변경 저장
+      </button>
+    </div>
+  </ng-container>
+</div>

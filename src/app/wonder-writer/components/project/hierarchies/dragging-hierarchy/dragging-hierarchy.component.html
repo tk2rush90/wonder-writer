@@ -1,0 +1,15 @@
+<ng-container [ngSwitch]="data.type">
+  <!-- directory icon -->
+  <app-icon
+    *ngSwitchCase="'directory'"
+    name="directory"></app-icon>
+
+  <!-- others -->
+  <app-icon
+    *ngSwitchDefault
+    name="article"></app-icon>
+</ng-container>
+
+<div class="ww-name">
+  {{data.name}}
+</div>

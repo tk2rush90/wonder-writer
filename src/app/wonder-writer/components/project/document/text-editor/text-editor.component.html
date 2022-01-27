@@ -1,0 +1,21 @@
+<!-- header -->
+<div class="ww-flex ww-header">
+  {{header}}
+</div>
+
+<!-- name -->
+<div class="ww-flex ww-name">
+  {{name}}
+</div>
+
+<!-- label -->
+<div class="ww-flex ww-label">
+  {{label}}
+</div>
+
+<!-- textarea -->
+<textarea
+  (ngModelChange)="contentChange.emit($event)"
+  [ngModel]="content"
+  placeholder="내용을 입력하세요."
+  spellcheck="false"></textarea>

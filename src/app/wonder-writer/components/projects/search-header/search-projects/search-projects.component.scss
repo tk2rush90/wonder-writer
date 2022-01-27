@@ -1,0 +1,28 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include flex(center);
+  height: 35px;
+}
+
+// search icon color
+@include icon-path-fill('search', $suva-grey);
+
+// input
+input {
+  @include font(14px, 400);
+  @include padding(0);
+  // {total} - {icon-width} - {margin-width}
+  width: calc(100% - 24px - 10px);
+  margin-left: 10px;
+  background-color: transparent;
+  color: $white;
+  border: none;
+  height: 100%;
+
+  &::placeholder {
+    color: $white-50;
+  }
+}

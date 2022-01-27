@@ -1,0 +1,56 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include padding(10px 0);
+  width: 190px;
+  position: fixed;
+  display: block;
+  z-index: 200;
+  background-color: $cod-grey;
+  box-shadow: $context-box-shadow;
+}
+
+// menu item
+.ww-item {
+  @include padding(0 15px);
+  @include noto-sans-kr;
+  @include font(14px);
+  @include flex(center);
+  height: 40px;
+  cursor: pointer;
+  user-select: none;
+  color: $white;
+
+  @include screen-under(1024px) {
+    @include flex(center, center);
+    text-align: center;
+  }
+
+  &:hover {
+    background-color: $bright-grey;
+  }
+
+  &:active {
+    background-color: darken($bright-grey, 10%);
+  }
+}
+
+.ww-light-theme {
+  :host {
+    background-color: $white;
+
+    .ww-item {
+      color: $cod-grey;
+
+      &:hover {
+        background-color: darken($white, 5%);
+      }
+
+      &:active {
+        background-color: darken($white, 10%);
+      }
+    }
+  }
+}

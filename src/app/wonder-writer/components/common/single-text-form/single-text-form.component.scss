@@ -1,0 +1,8 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include padding-top(10px);
+  display: block;
+}

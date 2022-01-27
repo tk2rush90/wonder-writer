@@ -1,0 +1,17 @@
+<app-modal-container>
+  <app-modal-header (close)="close()">
+    {{typeLabel}} 삭제
+  </app-modal-header>
+
+  <app-modal-content>
+    <p>
+      {{message}}
+    </p>
+  </app-modal-content>
+
+  <app-modal-actions>
+    <button (click)="close(true)" appAutoFocus appFlatButton color="chestnut">
+      삭제
+    </button>
+  </app-modal-actions>
+</app-modal-container>

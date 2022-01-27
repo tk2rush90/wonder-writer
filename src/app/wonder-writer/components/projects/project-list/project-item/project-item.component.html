@@ -1,0 +1,34 @@
+<!-- left flex container -->
+<div class="ww-flex ww-left">
+  <!-- project logo -->
+  <app-project-logo
+    [data]="data"></app-project-logo>
+
+  <!-- content container -->
+  <div class="ww-content">
+    <!-- name -->
+    <div class="ww-name">
+      {{data.name}}
+    </div>
+
+    <!-- last modified -->
+    <div class="ww-last-modified">
+      최종 수정일 {{data.lastModifiedDate | date: 'yyyy/MM/dd HH:mm:ss'}}
+    </div>
+  </div>
+</div>
+
+<!-- right flex container-->
+<div class="ww-flex">
+  <!-- edit button -->
+  <app-icon-button
+    (click)="onClickEdit($event)"
+    color="suva-grey"
+    name="edit"></app-icon-button>
+
+  <!-- delete button -->
+  <app-icon-button
+    (click)="onClickDelete($event)"
+    color="suva-grey"
+    name="delete"></app-icon-button>
+</div>

@@ -1,0 +1,22 @@
+@import "mixins";
+@import "props";
+
+// content container
+.ww-content {
+  @include box(100%);
+  @include top-left;
+  position: fixed;
+  z-index: 10000;
+  pointer-events: none;
+
+  &.ww-visible {
+    pointer-events: all;
+  }
+}
+
+// loading spinner
+app-loading-spinner {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}

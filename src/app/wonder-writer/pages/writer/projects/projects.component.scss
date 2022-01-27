@@ -1,0 +1,23 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include box(100%);
+  display: block;
+}
+
+// content container
+.ww-content {
+  width: calc(100% - 20px);
+  height: 100%;
+  margin: 0 auto;
+  max-width: 750px;
+}
+
+// project list space
+app-project-list {
+  @include padding(20px 0);
+  // {total} - {search-header-height}
+  height: calc(100% - 76px);
+}

@@ -1,0 +1,7 @@
+<!-- menu item -->
+<div
+  (click)="item.click(); close.emit()"
+  *ngFor="let item of data"
+  class="ww-item">
+  {{item.name}}
+</div>

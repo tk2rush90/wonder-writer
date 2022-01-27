@@ -1,0 +1,17 @@
+<app-modal-container>
+  <app-modal-header (close)="close()">
+    폴더 비우기
+  </app-modal-header>
+
+  <app-modal-content>
+    <p>
+      정말 폴더를 비우시겠습니까?
+    </p>
+  </app-modal-content>
+
+  <app-modal-actions>
+    <button (click)="close(true)" appAutoFocus appFlatButton color="chestnut">
+      비우기
+    </button>
+  </app-modal-actions>
+</app-modal-container>

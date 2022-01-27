@@ -1,0 +1,94 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  display: block;
+}
+
+// flex container
+.ww-flex {
+  @include flex(center);
+  cursor: pointer;
+  user-select: none;
+}
+
+// label
+.ww-label {
+  @include noto-sans-kr;
+  @include font(20px);
+  color: $white;
+}
+
+// icon button
+app-icon-button {
+  @include box(24px);
+  margin-left: 10px;
+
+  // opened
+  &.ww-opened {
+    transform: rotate(180deg);
+  }
+}
+
+// options
+.ww-options {
+  @include padding(10px 0);
+  position: fixed;
+  box-shadow: $context-box-shadow;
+  background-color: $cod-grey;
+  transform: translateY(10px);
+}
+
+// option item
+.ww-option {
+  @include flex(center);
+  @include padding(15px);
+  @include font(14px);
+  cursor: pointer;
+  user-select: none;
+  color: $white;
+
+  &:hover {
+    background-color: lighten($bright-grey, 5%);
+  }
+
+  &:active {
+    background-color: lighten($bright-grey, 10%);
+  }
+
+  &.ww-selected {
+    background-color: $wild-blue-yonder;
+  }
+}
+
+.ww-light-theme {
+  :host {
+    .ww-label {
+      color: $cod-grey;
+    }
+
+    .ww-options {
+      background-color: $white;
+    }
+
+    .ww-option {
+      color: $cod-grey;
+
+      &:not(.ww-selected) {
+        &:hover {
+          background-color: darken($white, 5%);
+        }
+
+        &:active {
+          background-color: darken($white, 10%);
+        }
+      }
+
+      &.ww-selected {
+        color: $white;
+        background-color: $picton-blue;
+      }
+    }
+  }
+}

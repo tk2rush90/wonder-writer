@@ -1,0 +1,25 @@
+<!-- render container when hierarchy is selected -->
+<ng-container *ngIf="hasOpenedHierarchy">
+  <!-- switch by opened hierarchy type -->
+  <ng-container [ngSwitch]="type">
+    <!-- manuscript -->
+    <app-manuscript
+      *ngSwitchCase="'manuscript'"
+      [hierarchy]="$any(openedHierarchy)"></app-manuscript>
+
+    <!-- character -->
+    <app-character
+      *ngSwitchCase="'character'"
+      [hierarchy]="$any(openedHierarchy)"></app-character>
+
+    <!-- place -->
+    <app-place
+      *ngSwitchCase="'place'"
+      [hierarchy]="$any(openedHierarchy)"></app-place>
+
+    <!-- episode -->
+    <app-episode
+      *ngSwitchCase="'episode'"
+      [hierarchy]="$any(openedHierarchy)"></app-episode>
+  </ng-container>
+</ng-container>

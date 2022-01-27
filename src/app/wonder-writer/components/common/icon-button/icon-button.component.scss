@@ -1,0 +1,62 @@
+@import "mixins";
+@import "props";
+
+@mixin color($attribute-color, $real-color) {
+  @include attribute-styles('ww-color', $attribute-color) {
+    app-icon {
+      ::ng-deep {
+        path {
+          fill: $real-color;
+        }
+      }
+    }
+  }
+}
+
+// container
+:host {
+  @include flex(center, center);
+  user-select: none;
+  cursor: pointer;
+}
+
+// icon transition
+app-icon {
+  ::ng-deep {
+    path {
+      transition: fill .1s;
+    }
+  }
+}
+
+:host {
+  // default state for each color
+  @include color('white', $white);
+  @include color('suva-grey', $suva-grey);
+
+  // hover state for each color
+  &:hover {
+    @include color('white', darken($white, 10%));
+    @include color('suva-grey', lighten($suva-grey, 10%));
+  }
+
+  &:active {
+    @include color('white', darken($white, 20%));
+    @include color('suva-grey', lighten($suva-grey, 20%));
+  }
+}
+
+.ww-light-theme {
+  :host {
+    @include color('white', $cod-grey);
+
+    // hover state for each color
+    &:hover {
+      @include color('white', lighten($cod-grey, 5%));
+    }
+
+    &:active {
+      @include color('white', lighten($cod-grey, 10%));
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include flex(center, center);
+  @include box(100%);
+  position: absolute;
+  background-color: $cod-grey;
+}
+
+// flex column container
+.ww-flex-column {
+  @include flex(center, null, column);
+}
+
+// title text
+h1 {
+  @include roboto;
+  @include font(40px, 400, 48px);
+  color: $white;
+  margin-top: 20px;
+}
+
+// description text
+p {
+  @include noto-sans-kr;
+  @include font(14px, 300, 1.8em);
+  color: $white;
+  margin-top: 27px;
+  text-align: center;
+}
+
+// start button
+a {
+  width: 130px;
+  margin-top: 30px;
+}

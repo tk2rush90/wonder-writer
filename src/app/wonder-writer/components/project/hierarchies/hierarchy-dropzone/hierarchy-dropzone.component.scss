@@ -1,0 +1,16 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include padding(0);
+  width: 100%;
+  height: 2px;
+  display: block;
+  background-clip: content-box;
+
+  // on droppable
+  &.ww-droppable {
+    background-color: $wild-blue-yonder;
+  }
+}

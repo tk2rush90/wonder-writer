@@ -1,0 +1,29 @@
+<!-- left container -->
+<div class="ww-left">
+  <!-- name -->
+  <div class="ww-name">
+    {{name}}
+  </div>
+
+  <!-- relation -->
+  <div class="ww-relation">
+    {{relation}}
+  </div>
+</div>
+
+<!-- right container -->
+<div
+  *ngIf="!readOnly"
+  class="ww-flex">
+  <!-- edit button -->
+  <app-icon-button
+    (click)="onEditClick($event)"
+    color="white"
+    name="edit"></app-icon-button>
+
+  <!-- delete button -->
+  <app-icon-button
+    (click)="onDeleteClick($event)"
+    color="white"
+    name="delete"></app-icon-button>
+</div>

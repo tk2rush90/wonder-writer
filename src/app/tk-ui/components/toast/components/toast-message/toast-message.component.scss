@@ -1,0 +1,31 @@
+@import "mixins";
+@import "props";
+
+@mixin type($type) {
+  @include attribute-styles('tk-type', $type) {
+    @content;
+  }
+}
+
+:host {
+  @include padding(10px 15px);
+  @include clickable();
+  @include border(1px solid $suva-grey);
+  @include noto-sans-kr;
+  display: block;
+  width: 280px;
+  font-size: 12px;
+  border-radius: 5px;
+  color: $white;
+  pointer-events: all;
+  word-break: break-word;
+  z-index: 1001;
+
+  @include type('default') {
+    background-color: $black-pearl;
+  }
+
+  @include type('error') {
+    background-color: $chestnut;
+  }
+}

@@ -1,0 +1,142 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include box(100%);
+  display: block;
+}
+
+// content
+.ww-content {
+  @include padding(30px 0);
+  width: calc(100% - 20px);
+  max-width: 750px;
+  height: 100%;
+  overflow: auto;
+  margin: 0 auto;
+}
+
+// flex container
+.ww-flex {
+  @include flex(center);
+}
+
+// header
+.ww-header {
+  @include noto-sans-kr;
+  @include font(20px);
+  height: 50px;
+  color: $white;
+}
+
+// flex space container
+.ww-flex-space {
+  @include flex(center, space-between);
+}
+
+// setting
+.ww-setting {
+  height: 40px;
+  margin-top: 15px;
+}
+
+// label
+.ww-label {
+  @include noto-sans-kr;
+  @include font(14px, 400);
+  color: $white;
+}
+
+app-select {
+  ::ng-deep {
+    .tk-option:nth-of-type(1) {
+      .tk-option-label {
+        @include noto-sans-kr;
+      }
+    }
+
+    .tk-option:nth-of-type(2) {
+      .tk-option-label {
+        @include noto-serif;
+      }
+    }
+
+    .tk-option:nth-of-type(3) {
+      .tk-option-label {
+        @include nanum-gothic;
+      }
+    }
+
+    .tk-option:nth-of-type(4) {
+      .tk-option-label {
+        @include nanum-myeongjo;
+      }
+    }
+  }
+
+  width: 150px;
+}
+
+app-range-slider {
+  @include rect(150px, 40px);
+
+  @include screen-under(425px) {
+    width: 100px;
+  }
+}
+
+input {
+  width: 70px;
+  text-align: center;
+  margin-left: 15px;
+}
+
+// unit
+.ww-unit {
+  @include noto-sans-kr;
+  @include font(14px, 400);
+  margin-left: 10px;
+  color: $white;
+  text-align: right;
+}
+
+// theme picker
+.ww-theme {
+  @include box(35px);
+  @include border(1px solid $suva-grey);
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+
+  &.ww-selected {
+    @include border(3px solid $wild-blue-yonder);
+  }
+}
+
+// theme space
+.ww-theme + .ww-theme {
+  margin-left: 10px;
+}
+
+// button container
+.ww-button {
+  @include flex(center, center);
+  margin-top: 30px;
+}
+
+button {
+  width: 130px;
+}
+
+.ww-light-theme {
+  :host {
+    .ww-header {
+      color: $picton-blue;
+    }
+
+    .ww-label, .ww-unit {
+      color: $cod-grey;
+    }
+  }
+}

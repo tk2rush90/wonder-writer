@@ -1,0 +1,46 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include rect(100%, 60px);
+  @include flex(center, space-between);
+  @include padding(0 20px);
+  background-color: $black-pearl;
+  box-shadow: $default-box-shadow;
+  position: relative;
+  z-index: 100;
+}
+
+// flex container
+.ww-flex {
+  @include flex(center);
+}
+
+// title link
+a {
+  user-select: none;
+}
+
+// title
+h1 {
+  @include roboto;
+  @include font(20px, 300, 29px);
+  color: $white;
+}
+
+// icon button space
+app-icon-button + app-icon-button {
+  margin-left: 20px;
+}
+
+// back button and title space
+app-icon-button + a {
+  margin-left: 20px;
+}
+
+.ww-light-theme {
+  :host {
+    background-color: $picton-blue;
+  }
+}

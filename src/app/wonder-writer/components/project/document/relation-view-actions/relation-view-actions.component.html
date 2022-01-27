@@ -1,0 +1,44 @@
+<!-- flex container -->
+<div
+  #closerButton
+  #positionContainer
+  (click)="opened = !opened"
+  class="ww-flex">
+  <!-- label -->
+  <div class="ww-label">
+    {{selectedAction?.label}}
+  </div>
+
+  <!-- icon button -->
+  <app-icon-button
+    [class.ww-opened]="opened"
+    color="white"
+    name="chevron-down"></app-icon-button>
+</div>
+
+<!-- options -->
+<div
+  #closerContainer
+  (autoClose)="opened = false"
+  *ngIf="opened"
+  [closeOnScroll]="true"
+  [closerButton]="closerButton"
+  [closerContainer]="closerContainer"
+  [positionContainer]="positionContainer"
+  [width]="190"
+  appAutoCloser
+  appAutoPositioner
+  class="ww-options"
+  horizontalBindPosition="inside"
+  horizontalPriority="left"
+  verticalBindPosition="outside"
+  verticalPriority="bottom">
+  <!-- option item -->
+  <div
+    (click)="onOptionClicked(item)"
+    *ngFor="let item of options"
+    [class.ww-selected]="selectedAction === item"
+    class="ww-option">
+    {{item.label}}
+  </div>
+</div>

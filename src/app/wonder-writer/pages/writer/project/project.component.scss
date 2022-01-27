@@ -1,0 +1,34 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include box(100%);
+  @include flex(flex-start);
+  position: relative;
+}
+
+// hierarchies width
+app-hierarchies {
+  position: relative;
+  width: 400px;
+  z-index: 80;
+
+  @include screen-under(1024px) {
+    position: absolute;
+    top: 0;
+    max-width: 400px;
+    width: 100%;
+  }
+}
+
+// content container
+.ww-content {
+  // {total} - {hierarchies-width}
+  width: calc(100% - 400px);
+  height: 100%;
+
+  @include screen-under(1024px) {
+    width: 100%;
+  }
+}

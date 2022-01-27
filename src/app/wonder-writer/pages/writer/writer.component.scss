@@ -1,0 +1,23 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include box(100%);
+  position: absolute;
+  display: block;
+}
+
+// router container
+.ww-content {
+  height: calc(100% - 60px);
+  background-color: $cod-grey;
+}
+
+.ww-light-theme {
+  :host {
+    .ww-content {
+      background-color: $white;
+    }
+  }
+}

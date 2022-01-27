@@ -1,0 +1,10 @@
+@import "mixins";
+@import "props";
+
+:host {
+  @include box(100%);
+  @include top-left;
+  display: block;
+  position: absolute;
+  background-color: rgba($black, .4);
+}

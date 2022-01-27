@@ -1,0 +1,14 @@
+<!-- content container -->
+<div class="ww-content">
+  <!-- project list search header -->
+  <app-search-header
+    (projectCreated)="onProjectCreated($event)"
+    (searchChange)="onSearchChange($event)"
+    [search]="search"></app-search-header>
+
+  <!-- project list -->
+  <app-project-list
+    (projectDeleted)="onProjectDeleted($event)"
+    (projectEdited)="onProjectEdited($event)"
+    [data]="filteredProjects"></app-project-list>
+</div>

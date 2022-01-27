@@ -1,0 +1,52 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include flex(center, space-between);
+  @include padding(10px);
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color .1s;
+
+  &:hover {
+    background-color: $suva-grey-50;
+  }
+}
+
+// flex container
+.ww-flex {
+  @include flex(center);
+}
+
+.ww-left {
+  // {total-width} - {icons-width} - {margin-width}
+  width: calc(100% - 60px - 10px);
+}
+
+// project info content container
+.ww-content {
+  @include noto-sans-kr;
+  margin-left: 10px;
+  // {total-width} - {margin-width} - {icon-width}
+  width: calc(100% - 10px - 40px);
+}
+
+// project name
+.ww-name {
+  @include font(14px, 400, 20px);
+  color: $white;
+}
+
+// last modified
+.ww-last-modified {
+  @include font(14px, 300, 20px);
+  margin-top: 1px;
+  color: $white-50;
+}
+
+// icon button space
+app-icon-button + app-icon-button {
+  margin-left: 20px;
+}

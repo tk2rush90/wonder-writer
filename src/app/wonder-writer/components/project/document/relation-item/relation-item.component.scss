@@ -1,0 +1,67 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include flex(center, space-between);
+  @include padding(0 10px);
+  height: 70px;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    background-color: $suva-grey-50;
+  }
+
+  &:active {
+    background-color: $suva-grey-70;
+  }
+}
+
+// left container
+.ww-left {
+  @include noto-sans-kr;
+  @include font(14px);
+}
+
+// name
+.ww-name {
+  color: $white;
+}
+
+// relation
+.ww-relation {
+  color: $white-50;
+  margin-top: 5px;
+}
+
+// flex container
+.ww-flex {
+  @include flex(center);
+}
+
+// icon button space
+app-icon-button + app-icon-button {
+  margin-left: 20px;
+}
+
+.ww-light-theme {
+  :host {
+    &:hover {
+      background-color: $white-50;
+    }
+
+    &:active {
+      background-color: $white-70;
+    }
+
+    .ww-name {
+      color: $cod-grey;
+    }
+
+    .ww-relation {
+      color: $cod-grey-50;
+    }
+  }
+}

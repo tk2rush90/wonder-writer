@@ -1,0 +1,15 @@
+@import "mixins";
+@import "props";
+
+:host {
+  @include flex(center, center);
+  @include padding(30px 0);
+}
+
+:host {
+  ::ng-deep {
+    button {
+      width: 130px;
+    }
+  }
+}

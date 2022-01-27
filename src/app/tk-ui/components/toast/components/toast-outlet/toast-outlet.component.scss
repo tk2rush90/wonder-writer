@@ -1,0 +1,21 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include box(100%);
+  @include padding(30px);
+  @include flex(flex-end, flex-end, column, nowrap);
+  @include top-left;
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+:host {
+  ::ng-deep {
+    app-toast-message + app-toast-message {
+      margin-top: 5px;
+    }
+  }
+}

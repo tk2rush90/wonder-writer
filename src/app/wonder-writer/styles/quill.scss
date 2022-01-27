@@ -1,0 +1,121 @@
+@import "mixins";
+@import "props";
+
+// hide clipboard from the view
+.ql-clipboard {
+  position: fixed;
+  top: -1000px;
+}
+
+// quill editor styles
+.ql-editor {
+  @include font(14px, 400, 1.8em);
+  @include padding(10px);
+  @include border(2px solid transparent);
+  tab-size: 4;
+  transition: border .1s;
+
+  &:focus, &:hover {
+    @include border(2px solid $wild-blue-yonder-50);
+    outline: 0;
+  }
+}
+
+// quill placeholder
+.ql-editor.ql-blank::before {
+  content: attr(data-placeholder);
+  pointer-events: none;
+  position: absolute;
+  color: $white-50;
+}
+
+// font sizes
+// small
+.ql-size-small {
+  font-size: 12px;
+}
+
+// large
+.ql-size-large {
+  font-size: 18px;
+}
+
+// huge
+.ql-size-huge {
+  font-size: 22px;
+}
+
+// align
+// center
+.ql-align-center {
+  text-align: center;
+}
+
+// right
+.ql-align-right {
+  text-align: right;
+}
+
+// justify
+.ql-align-justify {
+  text-align: justify;
+}
+
+// indents
+// 1
+.ql-indent-1 {
+  @include padding-left(2em);
+}
+
+// 2
+.ql-indent-2 {
+  @include padding-left(4em);
+}
+
+// 3
+.ql-indent-3 {
+  @include padding-left(6em);
+}
+
+// 4
+.ql-indent-4 {
+  @include padding-left(8em);
+}
+
+// 5
+.ql-indent-5 {
+  @include padding-left(10em);
+}
+
+.ww-light-theme {
+  .ql-editor {
+    &:focus, &:hover {
+      @include border(2px solid $picton-blue);
+      outline: 0;
+    }
+  }
+}
+
+.noto-sans {
+  .ql-editor {
+    @include noto-sans-kr;
+  }
+}
+
+.noto-serif {
+  .ql-editor {
+    @include noto-serif;
+  }
+}
+
+.nanum-gothic {
+  .ql-editor {
+    @include nanum-gothic;
+  }
+}
+
+.nanum-myeongjo {
+  .ql-editor {
+    @include nanum-myeongjo;
+  }
+}

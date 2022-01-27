@@ -1,0 +1,50 @@
+@import "mixins";
+@import "props";
+
+@mixin icon-color($color) {
+  app-icon {
+    ::ng-deep {
+      path {
+        fill: $color;
+      }
+    }
+  }
+}
+
+// container
+:host {
+  @include flex(center, center);
+  @include box(30px);
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+
+  // hover icon color
+  &:hover {
+    background-color: $white-20;
+  }
+
+  // active icon color
+  &:active {
+    background-color: darken($white-20, 10%);
+  }
+
+  // toggled active state
+  &.ww-active {
+    background-color: $white;
+
+    // activated icon color
+    @include icon-color($black-pearl);
+  }
+
+  &.ww-disabled {
+    pointer-events: none;
+    background-color: transparent;
+    opacity: .5;
+
+    @include icon-color($silver);
+  }
+}
+
+// default icon color
+@include icon-color($silver);

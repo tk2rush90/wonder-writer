@@ -1,0 +1,9 @@
+<!-- project list filter -->
+<app-search-projects
+  (searchChange)="searchChange.emit($event)"
+  [search]="search"></app-search-projects>
+
+<!-- new project button -->
+<button (click)="openCreateModal()" appFlatButton>
+  새 프로젝트
+</button>

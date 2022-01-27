@@ -1,0 +1,160 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include flex(center, space-between);
+  @include padding(0 8px);
+  @include border(2px solid transparent);
+  position: relative;
+  height: 40px;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover, &.ww-contextmenu-opened {
+    .ww-background {
+      opacity: .5;
+    }
+  }
+
+  &.ww-opened {
+    .ww-background {
+      background-color: $royal-blue;
+      opacity: .5;
+    }
+  }
+
+  &.ww-droppable {
+    @include border(2px solid $wild-blue-yonder);
+  }
+
+  @include screen-under(1024px) {
+    &:hover, &.ww-contextmenu-opened {
+      .ww-background {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+// background
+.ww-background {
+  @include box(100%);
+  @include top-left;
+  position: absolute;
+  background-color: $wild-blue-yonder;
+  opacity: 0;
+}
+
+// flex container
+.ww-flex {
+  @include flex(center);
+  position: relative;
+  z-index: 2;
+}
+
+// left container
+.ww-left {
+  // {total} - {mobile-actions-width} - {margin-width}
+  width: calc(100% - 53px - 10px);
+}
+
+// directory more icon container
+.ww-directory-more {
+  @include rect(16px, 24px);
+}
+
+// icon button in directory more
+.ww-directory-more app-icon-button {
+  ::ng-deep {
+    app-icon {
+      transform: rotate(-90deg);
+    }
+  }
+
+  @include box(100%);
+
+  // for opened state
+  &.ww-opened {
+    ::ng-deep {
+      app-icon {
+        transform: rotate(0);
+      }
+    }
+  }
+}
+
+// type icon container
+.ww-type-icon {
+  margin-left: 5px;
+}
+
+// hierarchy name
+.ww-name {
+  @include noto-sans-kr;
+  @include font(14px, 300);
+  @include ellipsis;
+  color: $white;
+  margin-left: 5px;
+  width: calc(100% - 21px - 5px - 24px - 5px);
+}
+
+// mobile actions container
+.ww-mobile {
+  visibility: hidden;
+
+  @include screen-under(1024px) {
+    visibility: visible;
+  }
+}
+
+// icon button space for mobile actions
+.ww-mobile {
+  app-icon-button + app-icon-button {
+    margin-left: 5px;
+  }
+}
+
+app-hierarchy-context-menu {
+  @include screen-under(1024px) {
+    width: calc(100% - 40px);
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.ww-light-theme {
+  :host {
+    .ww-name {
+      color: $cod-grey;
+    }
+
+    @include icon-path-fill('directory', $cod-grey);
+    @include icon-path-fill('article', $cod-grey);
+
+    &:hover, &.ww-contextmenu-opened {
+      .ww-background {
+        opacity: .5;
+      }
+    }
+
+    &.ww-opened {
+      .ww-background {
+        background-color: $picton-blue;
+        opacity: 1;
+      }
+
+      @include icon-path-fill('directory', $white);
+      @include icon-path-fill('article', $white);
+
+      .ww-name {
+        color: $white;
+      }
+    }
+
+    .ww-background {
+      background-color: $picton-blue;
+    }
+  }
+}

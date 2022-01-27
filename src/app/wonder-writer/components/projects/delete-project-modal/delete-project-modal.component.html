@@ -1,0 +1,21 @@
+<app-modal-container>
+  <app-modal-header (close)="close()">
+    프로젝트 삭제
+  </app-modal-header>
+
+  <app-modal-content>
+    <p>
+      프로젝트를 삭제하시겠습니까?
+    </p>
+  </app-modal-content>
+
+  <app-modal-actions>
+    <button
+      (click)="close(true)"
+      appAutoFocus
+      appFlatButton
+      color="chestnut">
+      삭제
+    </button>
+  </app-modal-actions>
+</app-modal-container>

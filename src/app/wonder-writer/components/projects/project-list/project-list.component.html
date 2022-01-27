@@ -1,0 +1,9 @@
+<!-- render project items -->
+<a
+  *ngFor="let item of data"
+  [routerLink]="['/writer/project', item.id]">
+  <app-project-item
+    (projectDeleted)="projectDeleted.emit($event)"
+    (projectEdited)="projectEdited.emit($event)"
+    [data]="item"></app-project-item>
+</a>

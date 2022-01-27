@@ -1,0 +1,103 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  display: block;
+  overflow: auto;
+}
+
+// flex container
+.ww-flex {
+  @include flex(center);
+  @include padding(0 20px);
+}
+
+// header
+.ww-header {
+  @include noto-sans-kr;
+  @include font(20px);
+  color: $white;
+  height: 70px;
+}
+
+// name
+.ww-name {
+  @include noto-sans-kr;
+  @include font(18px);
+  color: $white;
+  height: 60px;
+}
+
+// label
+.ww-label {
+  @include noto-sans-kr;
+  @include font(14px);
+  color: $white;
+  height: 40px;
+}
+
+// textarea
+textarea {
+  @include padding(10px 20px);
+  // height formula: {total} - {header-height} - {name-height} - {label-height}
+  @include rect(100%, calc(100% - 70px - 60px - 40px));
+  @include font(14px, 400, 1.8em);
+  color: $white;
+  resize: none;
+  display: block;
+
+  &::placeholder {
+    @include font(14px, 300, 1.8em);
+    color: $white-50;
+  }
+}
+
+.ww-light-theme {
+  :host {
+    .ww-header, .ww-name, .ww-label {
+      color: $picton-blue;
+    }
+
+    textarea {
+      color: $cod-grey;
+
+      &::placeholder {
+        @include font(14px, 300, 1.8em);
+        color: $cod-grey-50;
+      }
+    }
+  }
+}
+
+.noto-sans {
+  :host {
+    textarea {
+      @include noto-sans-kr;
+    }
+  }
+}
+
+.noto-serif {
+  :host {
+    textarea {
+      @include noto-serif;
+    }
+  }
+}
+
+.nanum-gothic {
+  :host {
+    textarea {
+      @include nanum-gothic;
+    }
+  }
+}
+
+.nanum-myeongjo {
+  :host {
+    textarea {
+      @include nanum-myeongjo;
+    }
+  }
+}

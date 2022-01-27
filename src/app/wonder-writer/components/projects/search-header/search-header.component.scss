@@ -1,0 +1,20 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include flex(center, space-between);
+  @include padding(20px 0);
+  @include border-bottom(1px solid $suva-grey);
+}
+
+// search filter width
+app-search-projects {
+  // {total} - {button-width} - {margin-width}
+  width: calc(100% - 130px - 10px);
+}
+
+// new project button
+button {
+  width: 130px;
+}

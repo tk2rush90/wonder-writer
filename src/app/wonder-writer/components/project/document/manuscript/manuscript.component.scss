@@ -1,0 +1,36 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include box(100%);
+  display: block;
+}
+
+// body container
+.ww-body {
+  // {total} - {editor-header-height}
+  height: calc(100% - 60px);
+  overflow: auto;
+}
+
+// content container
+.ww-content {
+  @include padding(30px 0);
+  width: calc(100% - 20px);
+  margin: 0 auto;
+  min-height: 100%;
+  color: $white;
+}
+
+.ql-clipboard {
+  display: none;
+}
+
+.ww-light-theme {
+  :host {
+    .ww-content {
+      color: $cod-grey;
+    }
+  }
+}

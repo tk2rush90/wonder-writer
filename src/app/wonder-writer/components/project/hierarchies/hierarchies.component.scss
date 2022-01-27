@@ -1,0 +1,36 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include padding(10px 0);
+  height: 100%;
+  display: block;
+  background-color: $baltic-sea;
+  box-shadow: $default-box-shadow;
+  transition: left .15s;
+
+  // on dragging
+  &.ww-dragging {
+    ::ng-deep {
+      // remove hover event on dragging
+      app-current-hierarchy {
+        pointer-events: none;
+      }
+    }
+  }
+
+  @include screen-under(1024px) {
+    left: -410px;
+
+    &.ww-opened {
+      left: 0;
+    }
+  }
+}
+
+.ww-light-theme {
+  :host {
+    background-color: $white;
+  }
+}

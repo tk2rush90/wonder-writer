@@ -1,0 +1,57 @@
+<!-- left flex container -->
+<div class="ww-flex ww-left">
+  <!-- directory more button -->
+  <div class="ww-directory-more">
+    <!-- button -->
+    <app-icon-button
+      (click)="toggleDirectoryOpened()"
+      *ngIf="hasChildren"
+      [class.ww-opened]="data.opened"
+      color="suva-grey"
+      name="chevron-down"></app-icon-button>
+  </div>
+
+  <!-- hierarchy type icon -->
+  <div class="ww-type-icon">
+    <ng-container [ngSwitch]="data.type">
+      <!-- directory icon -->
+      <app-icon
+        *ngSwitchCase="'directory'"
+        name="directory"></app-icon>
+
+      <!-- others -->
+      <app-icon
+        *ngSwitchDefault
+        name="article"></app-icon>
+    </ng-container>
+  </div>
+
+  <!-- hierarchy name -->
+  <div class="ww-name">
+    {{data.name}}
+  </div>
+</div>
+
+<!-- right flex container for mobile actions -->
+<div
+  *ngIf="!isRootHierarchy"
+  class="ww-flex ww-mobile">
+  <!-- drag handle -->
+  <app-icon-button
+    (touchstart)="onDragButtonClick($event)"
+    color="suva-grey"
+    name="drag-handle"></app-icon-button>
+</div>
+
+<!-- background -->
+<div
+  [style.opacity]="backgroundOpacity"
+  class="ww-background"></div>
+
+<!-- context menu -->
+<app-hierarchy-context-menu
+  (close)="onContextMenuClose()"
+  *ngIf="contextMenuOpened"
+  [data]="contextMenu"
+  [style.left]="contextMenuLeft"
+  [style.top]="contextMenuTop"></app-hierarchy-context-menu>

@@ -1,0 +1,12 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include box(40px);
+  @include flex(center, center);
+  @include noto-sans-kr;
+  @include font(14px);
+  color: $white;
+  border-radius: 5px;
+}

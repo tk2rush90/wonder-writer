@@ -1,0 +1,11 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  display: block;
+
+  &.ww-dragging {
+    display: none;
+  }
+}

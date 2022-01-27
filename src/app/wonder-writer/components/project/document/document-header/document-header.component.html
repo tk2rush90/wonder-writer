@@ -1,0 +1,25 @@
+<!-- flex container -->
+<div class="ww-flex">
+  <!-- render group -->
+  <ng-container *ngFor="let group of actions; let index = index">
+    <!-- show divider when having multiple groups -->
+    <div
+      *ngIf="index !== 0"
+      class="ww-divider"></div>
+
+    <!-- render actions in group -->
+    <app-document-header-action
+      *ngFor="let item of group"
+      [data]="item"
+      [disabled]="disabled"></app-document-header-action>
+  </ng-container>
+</div>
+
+<!-- save button -->
+<button
+  (click)="save.emit()"
+  *ngIf="hasChanges"
+  appFlatButton
+  color="wild-blue-yonder">
+  저장
+</button>

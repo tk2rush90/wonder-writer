@@ -1,0 +1,29 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  display: block;
+  background-color: $bright-grey;
+}
+
+// header
+.ww-header {
+  @include flex(center, space-between);
+  @include padding(0 20px);
+  height: 70px;
+}
+
+// content container
+.ww-content {
+  @include padding(0 10px);
+  // {total} - {header-height}
+  height: calc(100% - 70px);
+  overflow: auto;
+}
+
+.ww-light-theme {
+  :host {
+    background-color: darken($white, 5%);
+  }
+}

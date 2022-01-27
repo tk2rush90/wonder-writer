@@ -1,0 +1,31 @@
+<!-- left flex container -->
+<div class="ww-flex">
+  <!-- back button -->
+  <app-icon-button
+    (click)="onBackClick()"
+    *ngIf="showBack"
+    name="arrow-back"></app-icon-button>
+
+  <!-- menu button -->
+  <app-icon-button
+    (click)="toggleHierarchy()"
+    *ngIf="showMenu"
+    name="menu"></app-icon-button>
+
+  <!-- title link -->
+  <a [routerLink]="['/']">
+    <!-- title -->
+    <h1>
+      Wonder Writer
+    </h1>
+  </a>
+</div>
+
+<!-- right flex container to show actions -->
+<div class="ww-flex">
+  <!-- render action buttons -->
+  <app-icon-button
+    (click)="item.click()"
+    *ngFor="let item of actions"
+    [name]="item.name"></app-icon-button>
+</div>

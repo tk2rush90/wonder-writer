@@ -1,0 +1,20 @@
+<ng-container *ngIf="manuscript">
+  <!-- editor header for quill -->
+  <app-document-header
+    (save)="onSaveClick()"
+    [actions]="actions"
+    [disabled]="disabled"
+    [hasChanges]="hasChanges"></app-document-header>
+
+  <!-- body container -->
+  <div
+    #container
+    class="ww-body">
+    <!-- content container -->
+    <div
+      #content
+      [style.max-width]="contentWidth"
+      class="ww-content"
+      spellcheck="false"></div>
+  </div>
+</ng-container>

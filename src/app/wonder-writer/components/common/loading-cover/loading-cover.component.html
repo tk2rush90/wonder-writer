@@ -1,0 +1,10 @@
+<!-- content container -->
+<div
+  [class.ww-visible]="visible"
+  [style.opacity]="opacity"
+  class="ww-content">
+  <!-- loading spinner -->
+  <app-loading-spinner
+    *ngIf="showSpinner"
+    [colors]="spinnerColors"></app-loading-spinner>
+</div>

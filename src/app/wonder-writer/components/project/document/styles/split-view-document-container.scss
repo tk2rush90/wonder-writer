@@ -1,0 +1,40 @@
+@import "mixins";
+@import "props";
+
+@mixin view($view) {
+  @include attribute-styles('ww-view', $view) {
+    @content;
+  }
+}
+
+// container
+:host {
+  @include box(100%);
+  display: block;
+
+  // for both view
+  @include view('both') {
+    .ww-content {
+      width: 50%;
+      max-width: none !important;
+    }
+  }
+
+  // for left or right view
+  .ww-content {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+// body container
+.ww-body {
+  @include flex();
+  // {total} - {editor-header-height}
+  height: calc(100% - 60px);
+}
+
+// content container
+.ww-content {
+  height: 100%;
+}

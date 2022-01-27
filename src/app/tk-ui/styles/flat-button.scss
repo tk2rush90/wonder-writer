@@ -1,0 +1,68 @@
+@import "mixins";
+@import "props";
+
+@mixin flat-button($color, $font-color, $background, $hover-background, $active-background) {
+  @include attribute-styles('tk-color', $color) {
+    color: $font-color;
+    background-color: $background;
+
+    &:not(:disabled) {
+      @include clickable();
+
+      &:hover {
+        background-color: $hover-background;
+      }
+
+      &:active {
+        background-color: $active-background;
+      }
+    }
+
+    &:disabled {
+      opacity: .3;
+    }
+
+    // additional content
+    @content;
+  }
+}
+
+// flat button
+.tk-flat-button {
+  @include flex(center, center);
+  @include border(1px solid $suva-grey);
+  @include padding(0 10px);
+  @include font(14px, 400, 20px);
+  @include noto-sans-kr;
+  border-radius: 5px;
+  height: 35px;
+  transition: background-color .1s;
+  user-select: none;
+
+  // bright-grey
+  @include flat-button('bright-grey', $silver, $bright-grey, lighten($bright-grey, 2%), lighten($bright-grey, 5%));
+
+  // chestnut
+  @include flat-button('chestnut', $white, $chestnut, darken($chestnut, 2%), darken($chestnut, 5%));
+
+  // wild-blue-yonder
+  @include flat-button('wild-blue-yonder', $white, $wild-blue-yonder, darken($wild-blue-yonder, 2%), darken($wild-blue-yonder, 5%)) {
+    border-color: darken($wild-blue-yonder, 10%);
+  }
+}
+
+.ww-light-theme {
+  .tk-flat-button {
+    @include border(1px solid $cod-grey);
+
+    @include flat-button('bright-grey', $cod-grey, $white, darken($white, 2%), darken($white, 5%));
+
+    @include flat-button('chestnut', $white, $sunset-orange, darken($sunset-orange, 2%), darken($sunset-orange, 5%)) {
+      border: none;
+    }
+
+    @include flat-button('wild-blue-yonder', $white, $picton-blue, darken($picton-blue, 2%), darken($picton-blue, 5%)) {
+      border-color: darken($picton-blue, 10%);
+    }
+  }
+}

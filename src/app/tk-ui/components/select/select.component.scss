@@ -1,0 +1,118 @@
+@import "mixins";
+@import "props";
+
+:host {
+  display: block;
+  height: 35px;
+}
+
+// select container
+.tk-container {
+  @include box(100%);
+  @include clickable();
+  user-select: none;
+  position: relative;
+}
+
+// input element
+input {
+  @include padding-right(calc(15px + 12px + 15px));
+  @include box(100%);
+  text-overflow: ellipsis;
+  cursor: inherit;
+}
+
+// icon container
+.tk-icon-container {
+  @include vertical-center;
+  position: absolute;
+  right: 15px;
+}
+
+// arrow icon
+app-icon[tk-name='keyboard-arrow-down'] {
+  width: 12px;
+  top: 50%;
+
+  &.tk-reverse {
+    transform: rotate(180deg);
+  }
+}
+
+@include icon-path-fill('keyboard-arrow-down', $white);
+
+$option-height: 40px;
+$option-container-height: calc(#{$option-height} * 5);
+
+// options container
+.tk-options-container {
+  background-color: $cod-grey;
+  max-height: $option-container-height;
+  overflow: auto;
+  box-shadow: 0 5px 15px rgba($black, .3);
+  z-index: 10;
+}
+
+// option item
+.tk-option {
+  @include padding(0 15px);
+  @include flex(center);
+  @include clickable();
+  height: $option-height;
+
+  &:hover, &.tk-focused {
+    background-color: lighten($bright-grey, 5%);
+  }
+
+  &:active {
+    background-color: lighten($bright-grey, 10%);
+  }
+}
+
+// for selected option
+.tk-option {
+  &.tk-selected {
+    background-color: $wild-blue-yonder;
+  }
+}
+
+// option label
+.tk-option-label {
+  @include ellipsis;
+  @include noto-sans-kr;
+  font-size: 14px;
+  width: 100%;
+  color: $white;
+}
+
+.ww-light-theme {
+  :host {
+    @include icon-path-fill('keyboard-arrow-down', $cod-grey);
+
+    .tk-options-container {
+      background-color: $white;
+    }
+
+    .tk-option.tk-selected {
+      .tk-option-label {
+        color: $white;
+      }
+    }
+
+    .tk-option {
+      .tk-option-label {
+        color: $cod-grey;
+      }
+
+      &:not(.tk-selected) {
+        &:hover, &.tk-focused {
+          background-color: darken($white, 5%);
+        }
+      }
+
+      &.tk-selected {
+        background-color: $picton-blue;
+      }
+    }
+  }
+}

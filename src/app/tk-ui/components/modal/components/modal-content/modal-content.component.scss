@@ -1,0 +1,24 @@
+@import "mixins";
+@import "props";
+
+:host {
+  @include padding(0 20px);
+  display: block;
+  color: $white;
+}
+
+:host {
+  ::ng-deep {
+    // message
+    p {
+      @include font(14px, 400, 1.8em);
+      margin-top: 20px;
+    }
+  }
+}
+
+.ww-light-theme {
+  :host {
+    color: $cod-grey;
+  }
+}

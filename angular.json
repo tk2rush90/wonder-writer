@@ -33,6 +33,12 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/app/tk-ui/styles",
+                "src/app/wonder-writer/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {

@@ -1,0 +1,26 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  @include padding(0 15px);
+  @include flex(center, null, null, nowrap);
+  position: fixed;
+  pointer-events: none;
+  background-color: $baltic-sea;
+  box-shadow: $context-box-shadow;
+  width: 200px;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+}
+
+// name
+.ww-name {
+  @include noto-sans-kr;
+  @include font(14px, 300, 35px);
+  @include ellipsis;
+  color: $white;
+  margin-left: 5px;
+  // {total} - {icon-width} - {margin-width}
+  width: calc(100% - 24px - 5px);
+}

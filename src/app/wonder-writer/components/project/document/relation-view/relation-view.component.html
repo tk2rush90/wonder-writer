@@ -1,0 +1,118 @@
+<!-- header -->
+<div class="ww-header">
+  <!-- view actions -->
+  <app-relation-view-actions
+    (selectedActionChange)="onSelectedActionChange($event)"
+    [options]="actions"
+    [selectedAction]="selectedAction"></app-relation-view-actions>
+
+  <!-- add icon button -->
+  <app-icon-button
+    (click)="openCreateRelationModal()"
+    *ngIf="selectedAction?.editable"
+    color="white"
+    name="add"></app-icon-button>
+</div>
+
+<!-- content container -->
+<div
+  *ngIf="!loading"
+  class="ww-content">
+  <!-- switch by type -->
+  <ng-container [ngSwitch]="type">
+    <!-- character type -->
+    <ng-container *ngSwitchCase="'character'">
+      <!-- switch by selected action value -->
+      <ng-container [ngSwitch]="selectedAction?.value">
+        <!-- render character by character relation list -->
+        <ng-container *ngSwitchCase="'character'">
+          <!-- render relation item -->
+          <app-relation-item
+            (click)="navigateWith(item.to!.hierarchyId)"
+            (edit)="openUpdateRelationModal(item)"
+            *ngFor="let item of characterByCharacterRelations"
+            [name]="item.to!.name"
+            [relation]="item.relation"></app-relation-item>
+        </ng-container>
+
+        <!-- render character by place relation list -->
+        <ng-container *ngSwitchCase="'place'">
+          <!-- render relation item -->
+          <app-relation-item
+            (click)="navigateWith(item.place!.hierarchyId)"
+            (edit)="openUpdateRelationModal(item)"
+            *ngFor="let item of characterByPlaceRelations"
+            [name]="item.place!.name"
+            [relation]="item.relation"></app-relation-item>
+        </ng-container>
+
+        <!-- render episode by character relation list as readonly -->
+        <ng-container *ngSwitchCase="'episode'">
+          <!--render relation item -->
+          <app-relation-item
+            (click)="navigateWith(item.episode!.hierarchyId)"
+            *ngFor="let item of episodeByCharacterRelations"
+            [name]="item.episode!.name"
+            [readOnly]="true"
+            [relation]="item.relation"></app-relation-item>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+
+    <!-- place type -->
+    <ng-container *ngSwitchCase="'place'">
+      <!-- switch by selected action value -->
+      <ng-container [ngSwitch]="selectedAction?.value">
+        <!-- render character by place relation list as readonly -->
+        <ng-container *ngSwitchCase="'character'">
+          <!-- render relation item -->
+          <app-relation-item
+            (click)="navigateWith(item.character!.hierarchyId)"
+            *ngFor="let item of characterByPlaceRelations"
+            [name]="item.character!.name"
+            [readOnly]="true"
+            [relation]="item.relation"></app-relation-item>
+        </ng-container>
+
+        <!-- render episode by place relation list as readonly -->
+        <ng-container *ngSwitchCase="'episode'">
+          <!-- render relation item -->
+          <app-relation-item
+            (click)="navigateWith(item.episode!.hierarchyId)"
+            *ngFor="let item of episodeByPlaceRelations"
+            [name]="item.episode!.name"
+            [readOnly]="true"
+            [relation]="item.relation"></app-relation-item>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+
+    <!-- episode type -->
+    <ng-container *ngSwitchCase="'episode'">
+      <!-- switch by selected action value -->
+      <ng-container [ngSwitch]="selectedAction?.value">
+        <!-- render character by place relation list -->
+        <ng-container *ngSwitchCase="'character'">
+          <!-- render relation item -->
+          <app-relation-item
+            (click)="navigateWith(item.character!.hierarchyId)"
+            (edit)="openUpdateRelationModal(item)"
+            *ngFor="let item of episodeByCharacterRelations"
+            [name]="item.character!.name"
+            [relation]="item.relation"></app-relation-item>
+        </ng-container>
+
+        <!-- render episode by place relation list -->
+        <ng-container *ngSwitchCase="'place'">
+          <!-- render relation item -->
+          <app-relation-item
+            (click)="navigateWith(item.place!.hierarchyId)"
+            (edit)="openUpdateRelationModal(item)"
+            *ngFor="let item of episodeByPlaceRelations"
+            [name]="item.place!.name"
+            [relation]="item.relation"></app-relation-item>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</div>

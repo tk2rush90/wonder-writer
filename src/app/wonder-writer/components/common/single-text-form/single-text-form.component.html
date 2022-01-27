@@ -1,0 +1,21 @@
+<!-- form -->
+<form
+  (ngSubmit)="formSubmit.emit()"
+  [formGroup]="formGroup">
+  <!-- form field -->
+  <app-form-field>
+    <!-- label -->
+    <label>
+      {{label}}
+    </label>
+
+    <!-- text input -->
+    <input
+      appAutoFocus
+      appInput
+      formControlName="text"/>
+  </app-form-field>
+
+  <!-- hidden submit button -->
+  <button hidden type="submit"></button>
+</form>

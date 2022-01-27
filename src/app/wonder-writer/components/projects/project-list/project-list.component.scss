@@ -1,0 +1,17 @@
+@import "mixins";
+@import "props";
+
+// container
+:host {
+  display: block;
+  overflow: auto;
+}
+
+a {
+  display: block;
+}
+
+// project item space
+a + a {
+  margin-top: 5px;
+}

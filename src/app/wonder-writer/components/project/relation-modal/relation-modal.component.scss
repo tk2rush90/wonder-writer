@@ -1,0 +1,21 @@
+@import "mixins";
+@import "props";
+
+// form
+form {
+  @include padding-top(10px);
+  display: block;
+}
+
+// form field space
+app-form-field + app-form-field {
+  margin-top: 10px;
+}
+
+// textarea
+textarea {
+  @include padding(10px);
+  display: block;
+  resize: none;
+  height: 100px;
+}

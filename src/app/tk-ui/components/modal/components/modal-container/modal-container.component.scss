@@ -1,0 +1,14 @@
+@import "mixins";
+@import "props";
+
+:host {
+  display: block;
+  box-shadow: 0 5px 15px rgba($black, .3);
+  background-color: $cod-grey;
+}
+
+.ww-light-theme {
+  :host {
+    background-color: $white;
+  }
+}

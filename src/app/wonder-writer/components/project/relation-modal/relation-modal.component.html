@@ -1,0 +1,50 @@
+<app-modal-container>
+  <app-modal-header (close)="close()">
+    관계 설정
+  </app-modal-header>
+
+  <app-modal-content>
+    <form
+      (ngSubmit)="onSubmit()"
+      [formGroup]="formGroup">
+      <!-- selector -->
+      <app-form-field>
+        <label>
+          {{targetLabel}}
+        </label>
+
+        <app-select
+          [options]="options"
+          formControlName="target"
+          placeholder=""></app-select>
+      </app-form-field>
+
+      <!-- relation -->
+      <app-form-field>
+        <label>
+          관계
+        </label>
+
+        <input appInput formControlName="relation"/>
+      </app-form-field>
+
+      <!-- memo -->
+      <app-form-field>
+        <label>
+          메모
+        </label>
+
+        <textarea appInput formControlName="memo"></textarea>
+      </app-form-field>
+
+      <!-- hidden button -->
+      <button hidden></button>
+    </form>
+  </app-modal-content>
+
+  <app-modal-actions>
+    <button (click)="onSubmit()" appFlatButton>
+      저장
+    </button>
+  </app-modal-actions>
+</app-modal-container>

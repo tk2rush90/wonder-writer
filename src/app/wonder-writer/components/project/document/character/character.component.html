@@ -1,0 +1,28 @@
+<!-- render when character is loaded -->
+<ng-container *ngIf="character">
+  <!-- document header -->
+  <app-document-header
+    (save)="onSaveClick()"
+    [actions]="actions"
+    [hasChanges]="hasChanges"></app-document-header>
+
+  <!-- body container -->
+  <div class="ww-body">
+    <!-- text editor -->
+    <app-text-editor
+      *ngIf="showLeft"
+      [(content)]="character.content"
+      [name]="character.name"
+      [style.max-width]="contentWidth"
+      class="ww-content"
+      header="인물 설정"
+      label="특징 및 묘사"></app-text-editor>
+
+    <!-- relation view -->
+    <app-relation-view
+      *ngIf="showRight"
+      [character]="character"
+      [style.max-width]="contentWidth"
+      class="ww-content"></app-relation-view>
+  </div>
+</ng-container>

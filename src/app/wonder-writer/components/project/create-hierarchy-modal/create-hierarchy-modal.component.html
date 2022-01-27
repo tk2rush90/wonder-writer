@@ -1,0 +1,17 @@
+<app-modal-container>
+  <app-modal-header (close)="close()">
+    {{typeLabel}} 생성
+  </app-modal-header>
+
+  <app-modal-content>
+    <app-single-text-form
+      (formSubmit)="onSubmit()"
+      [label]="typeLabel + ' 명'"></app-single-text-form>
+  </app-modal-content>
+
+  <app-modal-actions>
+    <button (click)="onSubmit()" appFlatButton>
+      생성
+    </button>
+  </app-modal-actions>
+</app-modal-container>

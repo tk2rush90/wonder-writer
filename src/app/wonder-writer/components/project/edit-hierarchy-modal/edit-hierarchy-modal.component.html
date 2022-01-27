@@ -1,0 +1,17 @@
+<app-modal-container>
+  <app-modal-header (close)="close()">
+    {{typeLabel}} 수정
+  </app-modal-header>
+
+  <app-modal-content>
+    <app-single-text-form
+      (formSubmit)="onSubmit()"
+      [label]="typeLabel + ' 명'"></app-single-text-form>
+  </app-modal-content>
+
+  <app-modal-actions>
+    <button (click)="onSubmit()" appFlatButton>
+      수정
+    </button>
+  </app-modal-actions>
+</app-modal-container>
