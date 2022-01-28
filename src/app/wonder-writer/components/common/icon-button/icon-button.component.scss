@@ -49,14 +49,18 @@ app-icon {
 .ww-light-theme {
   :host {
     @include color('white', $cod-grey);
+    @include color('suva-grey', $black-50);
 
     // hover state for each color
     &:hover {
       @include color('white', lighten($cod-grey, 5%));
+      @include color('suva-grey', lighten($black-50, 10%));
+
     }
 
     &:active {
       @include color('white', lighten($cod-grey, 10%));
+      @include color('suva-grey', lighten($black-50, 20%));
     }
   }
 }

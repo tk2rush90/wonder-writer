@@ -7,6 +7,7 @@ import {ProjectDetailContainer} from '@wonder-writer/pages/writer/project-detail
 import {LoadingCoverService} from '@wonder-writer/services/common/loading-cover.service';
 import {ProjectSettingsStoreService} from '@wonder-writer/services/db/project-settings-store.service';
 import {ProjectSettingsService} from '@wonder-writer/services/common/project-settings.service';
+import {EventUtil} from '@tk-ui/utils/event.util';
 
 @Component({
   selector: 'app-project',
@@ -63,6 +64,18 @@ export class ProjectComponent extends ProjectDetailContainer implements OnInit {
    */
   @HostBinding('class.nanum-myeongjo') get nanumMyeongjo(): boolean {
     return this._appliedSettings?.contentFont === 'NanumMyeongjo';
+  }
+
+  /**
+   * Listen window beforeunload event
+   * @param event event
+   */
+  @HostListener('window:beforeunload', ['$event'])
+  onWindowBeforeUnload(event: Event): void {
+    EventUtil.neutralize(event);
+
+    // For chrome
+    event.returnValue = true;
   }
 
   /**

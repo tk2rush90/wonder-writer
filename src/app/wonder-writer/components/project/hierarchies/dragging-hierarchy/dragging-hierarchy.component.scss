@@ -24,3 +24,25 @@
   // {total} - {icon-width} - {margin-width}
   width: calc(100% - 24px - 5px);
 }
+
+app-icon {
+  @include box(20px);
+}
+
+.ww-light-theme {
+  :host {
+    background-color: $white;
+
+    .ww-name {
+      color: $cod-grey;
+    }
+
+    app-icon {
+      ::ng-deep {
+        path {
+          fill: $cod-grey;
+        }
+      }
+    }
+  }
+}
