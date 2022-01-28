@@ -4,7 +4,7 @@
   <div class="ww-directory-more">
     <!-- button -->
     <app-icon-button
-      (click)="toggleDirectoryOpened()"
+      (click)="toggleDirectoryOpened($event)"
       *ngIf="hasChildren"
       [class.ww-opened]="data.opened"
       color="suva-grey"

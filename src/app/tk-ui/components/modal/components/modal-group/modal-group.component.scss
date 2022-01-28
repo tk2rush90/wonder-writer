@@ -8,4 +8,5 @@
   @include flex(center, center);
   position: fixed;
   z-index: 1000;
+  overflow: auto;
 }

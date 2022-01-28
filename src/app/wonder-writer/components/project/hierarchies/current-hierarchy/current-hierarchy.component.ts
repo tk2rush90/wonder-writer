@@ -224,17 +224,22 @@ export class CurrentHierarchyComponent extends DroppableItem implements OnInit, 
   /**
    * Listen host touch start
    */
-  @HostListener('touchstart')
-  onHostTouchStart(): void {
-    if (this._data.type !== 'directory') {
+  @HostListener('click')
+  onHostMobileClick(): void {
+    if (window.innerWidth < 1024) {
       this.onHostDoubleClick();
     }
   }
 
   /**
    * Toggle directory opened state
+   * @param event mouse event
    */
-  toggleDirectoryOpened(): void {
+  toggleDirectoryOpened(event?: MouseEvent): void {
+    if (event) {
+      EventUtil.neutralize(event);
+    }
+
     const state = !this._data.opened;
 
     if (!state) {

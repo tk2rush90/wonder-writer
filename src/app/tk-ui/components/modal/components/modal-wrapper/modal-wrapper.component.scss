@@ -3,6 +3,7 @@
 
 :host {
   @include flex(center, center);
+  @include padding(20px 0);
   position: relative;
   max-width: 440px;
   width: 100%;
