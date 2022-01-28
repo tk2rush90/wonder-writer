@@ -38,5 +38,9 @@ input[type=number] {
 .ww-light-theme {
   .tk-input-field {
     color: $cod-grey;
+
+    &::placeholder {
+      color: $cod-grey-50;
+    }
   }
 }
