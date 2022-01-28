@@ -23,6 +23,9 @@ import {EpisodeByPlaceRelationStoreService} from '@wonder-writer/services/db/epi
 import {CharacterByPlaceRelation} from '@wonder-writer/models/character-by-place-relation';
 import {EpisodeByCharacterRelation} from '@wonder-writer/models/episode-by-character-relation';
 import {EpisodeByPlaceRelation} from '@wonder-writer/models/episode-by-place-relation';
+import {AvailableRelation} from '@wonder-writer/models/available-relation';
+import {IndexedDbUtil} from '@tk-ui/utils/indexed-db.util';
+import {lastValueFrom, Observable} from 'rxjs';
 
 /**
  * This is relation joint store to do some complicated actions
@@ -235,6 +238,36 @@ export class RelationJointStoreService {
     });
 
     return await Promise.all(promises);
+  }
+
+  /**
+   * Delete relation
+   * @param from from type
+   * @param to to type
+   * @param relation relation
+   */
+  async deleteRelation(from: string, to: string, relation: AvailableRelation): Promise<void> {
+    let delete$: Observable<void>;
+    let transaction = this.dbService.db.transaction([
+      this.characterByCharacterRelationStoreService.storeName,
+      this.characterByPlaceRelationStoreService.storeName,
+      this.episodeByCharacterRelationStoreService.storeName,
+      this.episodeByPlaceRelationStoreService.storeName,
+    ], 'readwrite');
+
+    if (from === 'character' && to === 'character') {
+      delete$ = IndexedDbUtil.deleteWithTransaction(transaction, this.characterByCharacterRelationStoreService.storeName, relation.id);
+    } else if (from === 'character' && to === 'place') {
+      delete$ = IndexedDbUtil.deleteWithTransaction(transaction, this.characterByPlaceRelationStoreService.storeName, relation.id);
+    } else if (from === 'episode' && to === 'character') {
+      delete$ = IndexedDbUtil.deleteWithTransaction(transaction, this.episodeByCharacterRelationStoreService.storeName, relation.id);
+    } else if (from === 'episode' && to === 'place') {
+      delete$ = IndexedDbUtil.deleteWithTransaction(transaction, this.episodeByPlaceRelationStoreService.storeName, relation.id);
+    } else {
+      throw new Error('Invalid relation');
+    }
+
+    await lastValueFrom(delete$);
   }
 
   /**

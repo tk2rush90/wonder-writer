@@ -20,6 +20,9 @@ import {AutoCloserModule} from '@tk-ui/components/auto-closer/auto-closer.module
 import {RelationItemComponent} from './relation-item/relation-item.component';
 import {RelationModalModule} from '@wonder-writer/components/project/relation-modal/relation-modal.module';
 import {FlatButtonModule} from '@tk-ui/components/flat-button/flat-button.module';
+import {
+  DeleteRelationModalModule
+} from '@wonder-writer/components/project/delete-relation-modal/delete-relation-modal.module';
 
 
 @NgModule({
@@ -50,6 +53,7 @@ import {FlatButtonModule} from '@tk-ui/components/flat-button/flat-button.module
     AutoCloserModule,
     RelationModalModule,
     FlatButtonModule,
+    DeleteRelationModalModule,
   ]
 })
 export class DocumentModule {

@@ -8,7 +8,7 @@
 :host {
   ::ng-deep {
     svg {
-      @include box(100%);
+      //@include box(100%);
       display: block;
     }
   }

@@ -29,6 +29,10 @@ h1 {
   color: $white;
 }
 
+app-icon-button {
+  @include box(24px);
+}
+
 // icon button space
 app-icon-button + app-icon-button {
   margin-left: 20px;

@@ -29,6 +29,7 @@
           <!-- render relation item -->
           <app-relation-item
             (click)="navigateWith(item.to!.hierarchyId)"
+            (delete)="openDeleteRelationModal(item)"
             (edit)="openUpdateRelationModal(item)"
             *ngFor="let item of characterByCharacterRelations"
             [name]="item.to!.name"
@@ -40,6 +41,7 @@
           <!-- render relation item -->
           <app-relation-item
             (click)="navigateWith(item.place!.hierarchyId)"
+            (delete)="openDeleteRelationModal(item)"
             (edit)="openUpdateRelationModal(item)"
             *ngFor="let item of characterByPlaceRelations"
             [name]="item.place!.name"
@@ -96,6 +98,7 @@
           <!-- render relation item -->
           <app-relation-item
             (click)="navigateWith(item.character!.hierarchyId)"
+            (delete)="openDeleteRelationModal(item)"
             (edit)="openUpdateRelationModal(item)"
             *ngFor="let item of episodeByCharacterRelations"
             [name]="item.character!.name"
@@ -107,6 +110,7 @@
           <!-- render relation item -->
           <app-relation-item
             (click)="navigateWith(item.place!.hierarchyId)"
+            (delete)="openDeleteRelationModal(item)"
             (edit)="openUpdateRelationModal(item)"
             *ngFor="let item of episodeByPlaceRelations"
             [name]="item.place!.name"

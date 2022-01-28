@@ -87,6 +87,10 @@
 // type icon container
 .ww-type-icon {
   margin-left: 5px;
+
+  app-icon {
+    @include box(20px);
+  }
 }
 
 // hierarchy name
@@ -110,6 +114,10 @@
 
 // icon button space for mobile actions
 .ww-mobile {
+  app-icon-button {
+    @include box(24px);
+  }
+
   app-icon-button + app-icon-button {
     margin-left: 5px;
   }

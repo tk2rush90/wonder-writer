@@ -23,6 +23,9 @@ import {HierarchyService} from '@wonder-writer/services/common/hierarchy.service
 import {LoadingCoverService} from '@wonder-writer/services/common/loading-cover.service';
 import {finalize, from} from 'rxjs';
 import {RelationJointStoreService} from '@wonder-writer/services/db/relation-joint-store.service';
+import {
+  DeleteRelationModalComponent
+} from '@wonder-writer/components/project/delete-relation-modal/delete-relation-modal.component';
 
 // Relation view type
 export type RelationViewType = 'character' | 'place' | 'episode';
@@ -220,6 +223,21 @@ export class RelationViewComponent implements OnInit {
           this._replaceRelation(res);
         }
       },
+    });
+  }
+
+  /**
+   * Open delete relation modal
+   * @param relation relation
+   */
+  openDeleteRelationModal(relation: AvailableRelation): void {
+    this.modalService.open(DeleteRelationModalComponent, {
+      closeOnNavigating: true,
+      onClose: res => {
+        if (res) {
+          this._deleteRelation(relation);
+        }
+      }
     });
   }
 
@@ -537,5 +555,43 @@ export class RelationViewComponent implements OnInit {
       message: '관계 설정을 불러오지 못했습니다',
       type: ToastType.error,
     });
+  }
+
+  /**
+   * Delete relation
+   * @param relation relation
+   */
+  private _deleteRelation(relation: AvailableRelation): void {
+    const promise = this.relationJointStoreService.deleteRelation(this.type, this.selectedAction!.value, relation);
+    const sub = from(promise)
+      .pipe(finalize(() => this.loadingCoverService.showLoading = false))
+      .subscribe({
+        next: () => {
+          this._removeRelationFromList(relation);
+
+          this.toastService.open({
+            message: '관계가 삭제되었습니다',
+          });
+        },
+        error: err => {
+          console.error(err);
+
+          this.toastService.open({
+            message: '관계를 삭제하지 못했습니다',
+            type: ToastType.error,
+          });
+        },
+      });
+
+    this.subscriptionService.store('_deleteRelation', sub);
+    this.loadingCoverService.showLoading = true;
+  }
+
+  /**
+   * Remove deleted relation from list
+   * @param relation relation
+   */
+  private _removeRelationFromList(relation: AvailableRelation): void {
+    this._relations = this._relations.filter(item => item.id !== relation.id);
   }
 }

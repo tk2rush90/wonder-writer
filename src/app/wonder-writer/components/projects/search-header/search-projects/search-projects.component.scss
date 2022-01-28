@@ -26,3 +26,7 @@ input {
     color: $white-50;
   }
 }
+
+app-icon {
+  @include box(24px);
+}

@@ -50,3 +50,7 @@
 app-icon-button + app-icon-button {
   margin-left: 20px;
 }
+
+app-icon-button {
+  @include box(20px);
+}

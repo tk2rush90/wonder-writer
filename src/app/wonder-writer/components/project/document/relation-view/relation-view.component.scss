@@ -22,6 +22,10 @@
   overflow: auto;
 }
 
+app-icon-button {
+  @include box(24px);
+}
+
 .ww-light-theme {
   :host {
     background-color: darken($white, 5%);
