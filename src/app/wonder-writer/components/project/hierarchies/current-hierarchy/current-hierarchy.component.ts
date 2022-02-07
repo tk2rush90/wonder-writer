@@ -289,7 +289,10 @@ export class CurrentHierarchyComponent extends DroppableItem implements OnInit, 
    */
   @HostListener('contextmenu', ['$event'])
   onHostContextMenu(event: MouseEvent): void {
-    EventUtil.neutralize(event);
+    // 20220207
+    // Fix the previous opened context menu of other hierarchy is not closing issue
+    // when opening another context menu.
+    event.preventDefault();
 
     if (window.innerWidth > 1024) {
       this.contextMenuMouseEvent = event;
