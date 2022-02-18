@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- ------Single Page Apps GitHub Pages Workaround------ -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafrex/spa-github-pages
+      // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+      // ----------------------------------------------------------------------
+      // This script checks to see if a redirect is present in the query string
+      // and converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      // When the single page app is loaded further down in this file,
+      // the correct url will be waiting in the browser's history for
+      // the single page app to route accordingly.
+      (function (l) {
+        if (l.search) {
+          const q = {};
+          l.search.slice(1).split('&').forEach(function (v) {
+            const a = v.split('=');
+            q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+          });
+          if (q.p !== undefined) {
+            window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + (q.p || '') +
+              (q.q ? ('?' + q.q) : '') +
+              l.hash
+            );
+          }
+        }
+      }(window.location))
+    </script>
+
+    <meta charset="utf-8">
+    <title>Wonder Writer</title>
+    <base href="./">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="src/favicon.ico" rel="icon" type="image/x-icon">
+
+    <!--    <meta http-equiv="refresh" content="0;url=https://tk2rush90.github.io/wonder-writer"/>-->
+    <!-- 콘텐츠 제목 -->
+    <meta content="Wonder Writer" property="og:title">
+    <!-- 웹 페이지 URL -->
+    <meta content="https://tk2rush90.github.io/wonder-writer" property="og:url">
+    <!-- 웹 페이지 타입 -->
+    <!-- https://ogp.me/#types 참고 -->
+    <!-- website, blog, music, video 등 -->
+    <meta content="website" property="og:type">
+    <!-- 미리보기 이미지 -->
+    <!-- 1200 x 627 -->
+    <meta content="../assets/images/thumbnail.png" property="og:image">
+    <!-- 웹 사이트명 -->
+    <meta content="Wonder Writer" property="og:site_name">
+    <!-- 웹 페이지 설명 -->
+    <meta content="당신의 상상력을 마음껏 펼치기 위한, Wonder Writer!" property="og:description">
+    <!-- 트위터 카드 종류 -->
+    <!-- https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started 참고 -->
+    <meta content="summary" name="twitter:card">
+    <!-- 콘텐츠 제목 -->
+    <meta content="Wonder Writer" name="twitter:title">
+    <!-- 웹 페이지 설명 -->
+    <meta content="당신의 상상력을 마음껏 펼치기 위한, Wonder Writer!" name="twitter:description">
+    <!-- 미리보기 이미지 -->
+    <!-- 120 x 120 -->
+    <meta content="../assets/images/thumbnail.png" name="twitter:image">
+    <meta content="글쓰기, Wonder Writer, 원더라이터, 플롯, 소설, 에세이, 수필, 작문, 글짓기, 글, 책, 글쓰기 어플리케이션, 글쓰기 앱, 글쓰기 사이트"
+          name="keywords">
+    <meta content="tk2rush90" name="author">
+    <meta content="당신의 상상력을 마음껏 펼치기 위한, Wonder Writer!" name="description">
+    <style>@import "https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap";
+
+    * {
+      padding: 0;
+      margin: 0
+    }
+
+    body, html {
+      background-color: #313335
+    }
+
+    * {
+      -webkit-overflow-scrolling: touch
+    }
+
+    *::-webkit-scrollbar {
+      width: 7px;
+      height: 7px
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background-color: #00000080
+    }</style>
+    <link href="styles.431d19fbf5431c45.css" media="print" onload="this.media='all'" rel="stylesheet">
+    <noscript>
+      <link href="styles.431d19fbf5431c45.css" rel="stylesheet">
+    </noscript>
+  </head>
+  <body>
+    <app-root></app-root>
+    <script src="../runtime.ffdbe0c753b98622.js" type="module"></script>
+    <script src="../polyfills.201476110e5e2fa8.js" type="module"></script>
+    <script src="../main.069b083382b44d7b.js" type="module"></script>
+
+  </body>
+</html>
